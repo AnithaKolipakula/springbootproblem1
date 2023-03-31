@@ -1,0 +1,23 @@
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@RestController
+@RequestMapping("/name")
+public class NameController {
+
+    private List<String> names = new ArrayList<>();
+
+    @GetMapping
+    public List<String> getNames() {
+        return names;
+    }
+
+    @PostMapping
+    public void addName(@RequestBody String name) {
+        names.add(name);
+    }
+}
